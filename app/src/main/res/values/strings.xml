@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">App_1</string>
+    <string name="Hello_world">Hello world !</string>
     <string name="action_settings">Settings</string>
+    <string name="button_text">Click</string>
+    <string name="msg">Toaster</string>
 </resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">App_1</string>
+    <string name="Hello_world">Bijour</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="button_text">Cliquez !</string>
+    <string name="msg">Toaster</string>
+</resources>
