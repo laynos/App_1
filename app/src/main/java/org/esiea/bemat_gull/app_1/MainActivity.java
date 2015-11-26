@@ -1,9 +1,11 @@
 package org.esiea.bemat_gull.app_1;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.format.DateUtils;
@@ -19,8 +21,9 @@ import java.text.DateFormat;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
-
-
+    TextView tv_hw = null;
+    DatePickerDialog dpd = null;
+    Intent intent = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,20 +40,20 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        final TextView tv_hw = (TextView) findViewById(R.id.tv_hello_world);
+
+        tv_hw = (TextView) findViewById(R.id.tv_hello_world);
         Button btn_hw = (Button) findViewById(R.id.btn_hello_world);
         String date_now = DateUtils.formatDateTime(getApplicationContext(),(new Date()).getTime(), DateFormat.FULL);
-        tv_hw.setText(getString(R.string.app_name) + date_now);
+        tv_hw.setText(getString(R.string.app_name) + " " + date_now);
 
-
-        DatePickerDialog dpd = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+        dpd = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                tv_hw.setText(getString(R.string.app_name) + dayOfMonth + "/" + monthOfYear + "/" + year);
+                tv_hw.setText(getString(R.string.app_name) +" "+ dayOfMonth + "/" + (monthOfYear+1) + "/" + year);
             }
         }, 2015, 11, 23);
+        intent= new Intent(this,SecondeActivity.class);
 
-        //tv_hw.setOnClickListener();
     }
 
     @Override
@@ -76,6 +79,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnHwAct(View v){
-        //Toast.makeText(getApplicationContext(),getString(R.string.msg),Toast.LENGTH_LONG).show();
+        dpd.show();
+        Toast.makeText(getApplicationContext(),getString(R.string.msg),Toast.LENGTH_LONG).show();
     }
+
+    public void btnSdAct(View v){
+        startActivity(intent);
+        // dpd.show();
+        // Toast.makeText(getApplicationContext(),getString(R.string.msg),Toast.LENGTH_LONG).show();
+    }
+/*
+    public void notificationTest() {
+        new NotificationCompat.Builder(this);
+*/
+
+
 }
