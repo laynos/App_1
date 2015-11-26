@@ -83,10 +83,8 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),getString(R.string.msg),Toast.LENGTH_LONG).show();
     }
 
-    public void btnSdAct(View v){
+    public void btnSdAct(View v) {
         startActivity(intent);
-        // dpd.show();
-        // Toast.makeText(getApplicationContext(),getString(R.string.msg),Toast.LENGTH_LONG).show();
     }
 /*
     public void notificationTest() {
