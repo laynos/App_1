@@ -19,4 +19,12 @@
         android:id="@+id/btn_hello_world"
         android:onClick="btnHwAct"
         />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_second_text"
+        android:id="@+id/btn_secondActivity"
+        android:layout_below="@+id/btn_hello_world"
+        android:onClick="btnSdAct"
+        />
 </LinearLayout>

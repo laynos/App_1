@@ -1,7 +1,11 @@
 package org.esiea.bemat_gull.app_1;
 
 import android.app.DatePickerDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,16 +48,25 @@ public class MainActivity extends AppCompatActivity {
 
         tv_hw = (TextView) findViewById(R.id.tv_hello_world);
         Button btn_hw = (Button) findViewById(R.id.btn_hello_world);
-        String date_now = DateUtils.formatDateTime(getApplicationContext(),(new Date()).getTime(), DateFormat.FULL);
-        tv_hw.setText(getString(R.string.app_name) + " " + date_now);
+       // String date_now = DateUtils.formatDateTime(getApplicationContext(),(new Date()).getTime(), DateFormat.FULL);
+        Date date = new Date();
+        SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
+        String dateNow = f.format(date);
+        int day = Integer.parseInt(dateNow.substring(0, 2));
+        int month = Integer.parseInt(dateNow.substring(3, 5));
+        int yeaar = Integer.parseInt(dateNow.substring(6, 10));
+        tv_hw.setText(getString(R.string.app_name) + " " + dateNow );
 
         dpd = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 tv_hw.setText(getString(R.string.app_name) +" "+ dayOfMonth + "/" + (monthOfYear+1) + "/" + year);
             }
-        }, 2015, 11, 23);
-        intent= new Intent(this,SecondeActivity.class);
+        }, yeaar, month, day);
+
+
+        intent = new Intent(this,SecondeActivity.class);
+
 
     }
 
@@ -74,22 +88,32 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
+        if(id == R.id.actiontoast){
+            Toast.makeText(getApplicationContext(),getString(R.string.wesh),Toast.LENGTH_LONG).show();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
     public void btnHwAct(View v){
         dpd.show();
         Toast.makeText(getApplicationContext(),getString(R.string.msg),Toast.LENGTH_LONG).show();
+        notificationTest();
     }
 
     public void btnSdAct(View v) {
-        startActivity(intent);
+       startActivity(intent);
+        //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=Londre")));
     }
-/*
-    public void notificationTest() {
-        new NotificationCompat.Builder(this);
-*/
 
+    public void notificationTest() {
+        NotificationCompat.Builder wat =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setContentTitle("Notification")
+                        .setContentText("Wesh la famille");
+        NotificationManager manager = ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE));
+        manager.notify(1,wat.build());
+    }
 
 }
