@@ -9,4 +9,5 @@
     <string name="title_activity_seconde">SecondeActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="wesh">Wesh la famille!</string>
+    <string name="dl">Début du téléchargement...</string>
 </resources>
