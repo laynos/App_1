@@ -1,10 +1,14 @@
 package org.esiea.bemat_gull.app_1;
 
 import android.app.DatePickerDialog;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -101,13 +105,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnSdAct(View v) {
-       startActivity(intent);
+     //  startActivity(intent);
 
-        //GetBiersServices.startActionBiers(this);
-        //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=Londre")));
+        GetBiersServices.startActionBiers(this);
+      //  startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=Londre")));
     }
 
-  /*  public void notificationTest() {
+    public void notificationTest() {
         NotificationCompat.Builder wat =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.mipmap.ic_launcher)
@@ -116,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         NotificationManager manager = ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE));
         manager.notify(1,wat.build());
     }
-*/
+
 
 
 

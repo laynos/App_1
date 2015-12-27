@@ -50,8 +50,34 @@ public class GetBiersServices extends IntentService {
         }
     }
 
+    /**
+     * Handle action Biers in the provided background thread with the provided
+     * parameters.
+     */
+    private void handleActionBiers() {
+        // TODO: Handle action Biers
+        Log.v(TAG,"waaat : "+Thread.currentThread().getName());
+        URL url = null;
+        try {
+            url = new URL("http://binouze.fabrigli.fr/bieres.json");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.connect();
+            if(HttpURLConnection.HTTP_OK == conn.getResponseCode()) {
+                copyInputStreamToFile(conn.getInputStream(),
+                       new File(getCacheDir(), "bieres.json"));
+                Log.d(TAG, "Bieres json downloaded");
+              //  LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(SecondeActivity.BIERS_UPDATE));
 
+            }
+        }catch(MalformedURLException e){
+            e.printStackTrace();
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        //throw new UnsupportedOperationException("Not yet implemented");
+    }
     private void copyInputStreamToFile(InputStream in , File file){
         try{
             OutputStream out = new FileOutputStream(file);
@@ -66,34 +92,5 @@ public class GetBiersServices extends IntentService {
             e.printStackTrace();
         }
     }
-    /**
-     * Handle action Biers in the provided background thread with the provided
-     * parameters.
-     */
-    private void handleActionBiers() {
-        // TODO: Handle action Biers
-        Log.v(TAG,"waaat : "+Thread.currentThread().getName());
-        URL url;
-        try {
-            url = new URL("http://binouze.fabrigli.fr/bieres.json");
-            HttpURLConnection conn = ((HttpURLConnection) url.openConnection());
-            conn.setRequestMethod("GET");
-            conn.connect();
-            if(HttpURLConnection.HTTP_OK == conn.getResponseCode()) {
-                copyInputStreamToFile(conn.getInputStream(),
-                       new File(getCacheDir(), "bieres.json"));
-                Log.d(TAG, "Bieres json downloaded");
-                LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(SecondeActivity.BIERS_UPDATE));
-
-            }
-        }/*catch(MalformedURLException e){
-            e.printStackTrace();
-        }*/catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        //throw new UnsupportedOperationException("Not yet implemented");
-    }
-
 
 }
