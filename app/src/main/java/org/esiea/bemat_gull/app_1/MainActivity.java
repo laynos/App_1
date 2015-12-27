@@ -105,10 +105,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnSdAct(View v) {
-     //  startActivity(intent);
 
-        GetBiersServices.startActionBiers(this);
+        startActivity(intent);
+
+       // GetBiersServices.startActionBiers(this);
       //  startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=Londre")));
+             //   notificationTest();
     }
 
     public void notificationTest() {
@@ -118,9 +120,8 @@ public class MainActivity extends AppCompatActivity {
                         .setContentTitle("Notification")
                         .setContentText("Wesh la famille");
         NotificationManager manager = ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE));
-        manager.notify(1,wat.build());
+        manager.notify(1, wat.build());
     }
-
 
 
 

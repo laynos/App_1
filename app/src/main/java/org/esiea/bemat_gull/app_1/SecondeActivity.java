@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -26,6 +28,8 @@ import java.io.InputStream;
 
 public class SecondeActivity extends AppCompatActivity {
 
+
+    public static final String TAG = "GetBiersServices";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,17 +46,16 @@ public class SecondeActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
         GetBiersServices.startActionBiers(this);
         IntentFilter intentFilter = new IntentFilter(BIERS_UPDATE);
         LocalBroadcastManager.getInstance(this).registerReceiver(new BierUpdate(), intentFilter);
 
-
+/*
         RecyclerView rv = ((RecyclerView) findViewById(R.id.rv_biere));
         rv.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
-        rv.setAdapter(new BiersAdapter());
+        rv.setAdapter(new BiersAdapter()); */
     }
-
+/*
     public JSONArray getBiersFromFile(){
         try{
             InputStream is = new FileInputStream(getCacheDir()+"/"+"bieres.json");
@@ -68,16 +71,15 @@ public class SecondeActivity extends AppCompatActivity {
             return new JSONArray();
         }
     }
+*/
 
-
-    public static final String BIERS_UPDATE = "org.esiea.bemat_gull.app_1.action.BIERS_UPDATE";
+    public static final String BIERS_UPDATE = "org.esiea.bemat_gull.app_1.BIERS_UPDATE";
         public class BierUpdate extends BroadcastReceiver {
-            public static final String TAG = "BierUpdate";
 
             @Override
             public void onReceive(Context context, Intent intent) {
-              //  Log.d(TAG,getIntent().getAction());
-                notificationTest();
+               Log.d(TAG, getIntent().getAction());
+               notificationTest();
             }
 
 
@@ -89,10 +91,10 @@ public class SecondeActivity extends AppCompatActivity {
                         .setContentTitle("DL")
                         .setContentText("bieres.json");
         NotificationManager manager = ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE));
-        manager.notify(1,wat.build());
+        manager.notify(1, wat.build());
     }
 
-
+/*
 
     private class BiersAdapter extends RecyclerView.Adapter<BiersAdapter.BierHolder> {
         @Override
@@ -119,5 +121,5 @@ public class SecondeActivity extends AppCompatActivity {
                 this.biers = biers;
             }
         }
-    }
+    } */
 }

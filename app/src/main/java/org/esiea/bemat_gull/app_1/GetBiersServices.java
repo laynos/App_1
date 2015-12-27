@@ -1,8 +1,11 @@
 package org.esiea.bemat_gull.app_1;
 
 import android.app.IntentService;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.widget.Toast;
@@ -29,11 +32,12 @@ public class GetBiersServices extends IntentService {
     public static final String ACTION_BIERS = "org.esiea.bemat_gull.app_1.action.BIERS";
     public static final String TAG = "GetBiersServices";
 
+
     public static void startActionBiers(Context context) {
         Intent intent = new Intent(context, GetBiersServices.class);
         intent.setAction(ACTION_BIERS);
         context.startService(intent);
-        Toast.makeText(context,R.string.dl,Toast.LENGTH_LONG).show();
+        Toast.makeText(context, R.string.dl, Toast.LENGTH_LONG).show();
     }
 
     public GetBiersServices() {
@@ -56,7 +60,7 @@ public class GetBiersServices extends IntentService {
      */
     private void handleActionBiers() {
         // TODO: Handle action Biers
-        Log.v(TAG,"waaat : "+Thread.currentThread().getName());
+        Log.v(TAG, "waaat : " + Thread.currentThread().getName());
         URL url = null;
         try {
             url = new URL("http://binouze.fabrigli.fr/bieres.json");
@@ -65,7 +69,7 @@ public class GetBiersServices extends IntentService {
             conn.connect();
             if(HttpURLConnection.HTTP_OK == conn.getResponseCode()) {
                 copyInputStreamToFile(conn.getInputStream(),
-                       new File(getCacheDir(), "bieres.json"));
+                        new File(getCacheDir(), "bieres.json"));
                 Log.d(TAG, "Bieres json downloaded");
               //  LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(SecondeActivity.BIERS_UPDATE));
 
@@ -92,5 +96,6 @@ public class GetBiersServices extends IntentService {
             e.printStackTrace();
         }
     }
+
 
 }
