@@ -4,7 +4,36 @@
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
     <item android:id="@+id/actiontoast"
-        android:title="toast me"
+        android:title="Get Toast"
         android:icon="@mipmap/ic_launcher"
         />
+    <item android:id="@+id/actionnotification"
+        android:title="Get Notification"
+        android:icon="@mipmap/ic_launcher"
+        />
+    <item
+        android:id="@+id/menu_search"
+
+        android:showAsAction="ifRoom"
+        android:title="@string/menu_search"/>
+    <item
+        android:id="@+id/menu_refresh"
+
+        android:showAsAction="ifRoom"
+        android:title="@string/menu_refresh"/>
+    <item
+        android:id="@+id/menu_help"
+
+        android:showAsAction="ifRoom"
+        android:title="@string/menu_help"/>
+    <item
+        android:id="@+id/menu_about"
+
+        android:showAsAction="never"
+        android:title="@string/menu_about"/>
+    <item
+        android:id="@+id/menu_settings"
+
+        android:showAsAction="never"
+        android:title="@string/menu_settings"/>
 </menu>

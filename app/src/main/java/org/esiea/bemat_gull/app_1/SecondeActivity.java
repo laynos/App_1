@@ -42,7 +42,7 @@ public class SecondeActivity extends ActionBarActivity {
         IntentFilter intentFilter = new IntentFilter(BIERS_UPDATE);
         LocalBroadcastManager.getInstance(this).registerReceiver(new BierUpdate(),intentFilter);
         rv = (RecyclerView)findViewById(R.id.rv_biere);
-        rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rv.setAdapter(new BiersAdapter(getBiersFromFile()));
     }
 
@@ -70,7 +70,7 @@ public class SecondeActivity extends ActionBarActivity {
     public void notification() {
         NotificationCompat.Builder wat =
                 new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setSmallIcon(R.mipmap.ic_launcherr)
                         .setContentTitle("Notification")
                         .setContentText(getString(R.string.endDL));
         NotificationManager manager = ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE));

@@ -15,9 +15,6 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.esiea.bemat_gull.app_1.R;
-import org.esiea.bemat_gull.app_1.SecondeActivity;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Date;
@@ -32,21 +29,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         tv_hw = (TextView) findViewById(R.id.tv_hello_world);
-        //Button btn_hw = (Button) findViewById(R.id.btn_hello_world);
-        // String date_now = DateUtils.formatDateTime(getApplicationContext(),(new Date()).getTime(), DateFormat.FULL);
         Date date = new Date();
         SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
         String dateNow = f.format(date);
         int day = Integer.parseInt(dateNow.substring(0, 2));
         int month = Integer.parseInt(dateNow.substring(3, 5));
         int yeaar = Integer.parseInt(dateNow.substring(6, 10));
-        tv_hw.setText(getString(R.string.app_name) + " " + dateNow );
+        tv_hw.setText(getString(R.string.date) + "\n " + dateNow );
 
         dpd = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                tv_hw.setText(getString(R.string.app_name) +" "+ dayOfMonth + "/" + (monthOfYear+1) + "/" + year);
+                tv_hw.setText(getString(R.string.date) +"\n "+ dayOfMonth + "/" + (monthOfYear+1) + "/" + year);
             }
         }, yeaar, month-1, day);
 
@@ -64,18 +61,27 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.menu_about:
+                // Comportement du bouton "A Propos"
+                return true;
+            case R.id.menu_help:
+                // Comportement du bouton "Aide"
+                return true;
+            case R.id.menu_refresh:
+                // Comportement du bouton "Rafraichir"
+                return true;
+            case R.id.menu_search:
+                // Comportement du bouton "Recherche"
+                return true;
+           case R.id.menu_settings:
+                // Comportement du bouton "Paramètres"
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
+
 
     public void btnHwAct(View v) {
         Toast.makeText(getApplicationContext(),getString(R.string.msg),Toast.LENGTH_LONG).show();

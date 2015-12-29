@@ -9,4 +9,10 @@
     <string name="title_activity_seconde">Deuxieme activite</string>
     <string name="dl">Debut du telechargement...</string>
     <string name="endDL">Fichier telecharger</string>
+    <string name="date">Date</string>
+    <string name="menu_about">A propos</string>
+    <string name="menu_help">Aide</string>
+    <string name="menu_refresh">Rafraichir</string>
+    <string name="menu_search">Recherche</string>
+    <string name="menu_settings">Parametres</string>
 </resources>
