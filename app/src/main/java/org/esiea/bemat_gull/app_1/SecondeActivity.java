@@ -1,9 +1,11 @@
 package org.esiea.bemat_gull.app_1;
 
+import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -65,7 +67,15 @@ public class SecondeActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
+    public void notification() {
+        NotificationCompat.Builder wat =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setContentTitle("Notification")
+                        .setContentText(getString(R.string.endDL));
+        NotificationManager manager = ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE));
+        manager.notify(1,wat.build());
+    }
     public static final String BIERS_UPDATE = "gull_bemat.esiea.org.action.BIERS_UPDATE";
 
     public class BierUpdate extends BroadcastReceiver {
@@ -74,6 +84,7 @@ public class SecondeActivity extends ActionBarActivity {
             BiersAdapter bierAdapt = (BiersAdapter) rv.getAdapter();
             bierAdapt.setNewBiere(getBiersFromFile());
             Log.d("SecondeActivity", "" + getIntent().getAction());
+            notification();
         }
     }
 

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">OKLM</string>
+    <string name="app_name">INF4042</string>
     <string name="Hello_world">Hello world !</string>
     <string name="action_settings">Settings</string>
     <string name="button_text">Change date</string>
     <string name="button_second_text">Change activity</string>
-    <string name="msg">OHHHHHHHHHH CLICK , KAAAARIS</string>
+    <string name="msg">Enter new date</string>
     <string name="title_activity_seconde">SecondeActivity</string>
-    <string name="wesh">Wesh la famille!</string>
     <string name="dl">Start download...</string>
+    <string name="endDL">File downloaded</string>
 </resources>
