@@ -1,56 +1,40 @@
 package org.esiea.bemat_gull.app_1;
 
 import android.app.DatePickerDialog;
-import android.app.NotificationManager;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
+import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.format.DateUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
+import org.esiea.bemat_gull.app_1.R;
+import org.esiea.bemat_gull.app_1.SecondeActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Date;
+import java.text.DateFormat;
+
 
 public class MainActivity extends AppCompatActivity {
-    TextView tv_hw = null;
-    DatePickerDialog dpd = null;
-    Intent intent = null;
 
+    TextView tv_hw;
+    DatePickerDialog dpd;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         tv_hw = (TextView) findViewById(R.id.tv_hello_world);
         //Button btn_hw = (Button) findViewById(R.id.btn_hello_world);
-       // String date_now = DateUtils.formatDateTime(getApplicationContext(),(new Date()).getTime(), DateFormat.FULL);
+        // String date_now = DateUtils.formatDateTime(getApplicationContext(),(new Date()).getTime(), DateFormat.FULL);
         Date date = new Date();
         SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
         String dateNow = f.format(date);
@@ -67,11 +51,9 @@ public class MainActivity extends AppCompatActivity {
         }, yeaar, month-1, day);
 
 
-        intent = new Intent(this,SecondeActivity.class);
-
-
-
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -91,38 +73,19 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-        if(id == R.id.actiontoast){
-            Toast.makeText(getApplicationContext(),getString(R.string.wesh),Toast.LENGTH_LONG).show();
-            return true;
-        }
+
         return super.onOptionsItemSelected(item);
     }
 
-    public void btnHwAct(View v){
-        dpd.show();
+    public void btnHwAct(View v) {
         Toast.makeText(getApplicationContext(),getString(R.string.msg),Toast.LENGTH_LONG).show();
-        //notificationTest();
+        dpd.show();
     }
+
 
     public void btnSdAct(View v) {
+        Intent second= new Intent(this, SecondeActivity.class);
+        startActivity(second);
 
-        startActivity(intent);
-
-       // GetBiersServices.startActionBiers(this);
-      //  startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=Londre")));
-             //   notificationTest();
     }
-
-    public void notificationTest() {
-        NotificationCompat.Builder wat =
-                new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.mipmap.ic_launcher)
-                        .setContentTitle("Notification")
-                        .setContentText("Wesh la famille");
-        NotificationManager manager = ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE));
-        manager.notify(1, wat.build());
-    }
-
-
-
 }
