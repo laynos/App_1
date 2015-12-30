@@ -1,14 +1,11 @@
 package org.esiea.bemat_gull.app_1;
 
 import android.app.IntentService;
-import android.content.Intent;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.widget.Toast;
-
-import org.esiea.bemat_gull.app_1.R;
-import org.esiea.bemat_gull.app_1.SecondeActivity;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -52,7 +49,6 @@ public class GetBiersServices extends IntentService {
         if (intent != null) {
             final String action = intent.getAction();
             if (ACTION_GET_ALL_BIERS.equals(action)) {
-
                 handleActionGet_All_Biers();
             }
         }
@@ -80,7 +76,7 @@ public class GetBiersServices extends IntentService {
     private void handleActionGet_All_Biers() {
         // TODO: Handle action Foo
         Log.d("GetBiersServices", "Thread service name:" + Thread.currentThread().getName());
-        URL url = null;
+        URL url;
         try {
             url = new URL("http://binouze.fabrigli.fr/bieres.json");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -88,12 +84,8 @@ public class GetBiersServices extends IntentService {
             conn.connect();
             if(HttpURLConnection.HTTP_OK == conn.getResponseCode()) {
                 copyInputStreamToFile(conn.getInputStream(), new File(getCacheDir(), "bieres.json"));
-
                 LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(SecondeActivity.BIERS_UPDATE));
-
             }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

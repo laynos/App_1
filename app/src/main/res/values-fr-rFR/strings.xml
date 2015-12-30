@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">INF4042</string>
-    <string name="Hello_world">Salut tout le monde !</string>
+    <string name="Hello_world">Salut à tous !</string>
     <string name="action_settings">Paramètres</string>
     <string name="button_text">Changer la date</string>
-    <string name="button_second_text">Changer d activite</string>
+    <string name="button_second_text">Changer d\' activite</string>
     <string name="msg">Entrer nouvelle date</string>
     <string name="title_activity_seconde">Deuxieme activite</string>
-    <string name="dl">Debut du telechargement...</string>
-    <string name="endDL">Fichier telecharger</string>
+    <string name="dl">Début du téléchargement&#8230;</string>
+    <string name="endDL">Fichier téléchargé</string>
     <string name="date">Date</string>
-    <string name="menu_about">A propos</string>
+    <string name="menu_about">À propos</string>
     <string name="menu_help">Aide</string>
-    <string name="menu_refresh">Rafraichir</string>
+    <string name="menu_refresh">Rafraîchir</string>
     <string name="menu_search">Recherche</string>
-    <string name="menu_settings">Parametres</string>
+    <string name="menu_notification">Recevoir une notification</string>
+    <string name="menu_toast">Recevoir un toast</string>
+    <string name="toast_example">Voici un toast</string>
+    <string name="notification_example">Voici une notification</string>
 </resources>

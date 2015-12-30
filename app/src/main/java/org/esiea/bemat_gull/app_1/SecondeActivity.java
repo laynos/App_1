@@ -5,10 +5,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -19,8 +19,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.esiea.bemat_gull.app_1.GetBiersServices;
-import org.esiea.bemat_gull.app_1.R;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,7 +28,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 
-public class SecondeActivity extends ActionBarActivity {
+public class SecondeActivity extends AppCompatActivity {
 
     RecyclerView rv;
 
@@ -38,9 +36,12 @@ public class SecondeActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seconde);
+
         GetBiersServices.startActionGet_All_Biers(this);
+
         IntentFilter intentFilter = new IntentFilter(BIERS_UPDATE);
         LocalBroadcastManager.getInstance(this).registerReceiver(new BierUpdate(),intentFilter);
+
         rv = (RecyclerView)findViewById(R.id.rv_biere);
         rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rv.setAdapter(new BiersAdapter(getBiersFromFile()));
@@ -70,7 +71,7 @@ public class SecondeActivity extends ActionBarActivity {
     public void notification() {
         NotificationCompat.Builder wat =
                 new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.mipmap.ic_launcherr)
+                        .setSmallIcon(R.mipmap.ic_launcher)
                         .setContentTitle("Notification")
                         .setContentText(getString(R.string.endDL));
         NotificationManager manager = ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE));
@@ -114,8 +115,7 @@ public class SecondeActivity extends ActionBarActivity {
 
         @Override
         public BierHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-            BierHolder bierHold = new BierHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.rv_bier_element, viewGroup, false));
-            return bierHold;
+            return new BierHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.rv_bier_element, viewGroup, false));
         }
 
         public void setNewBiere(JSONArray biers) {
@@ -125,7 +125,7 @@ public class SecondeActivity extends ActionBarActivity {
 
         @Override
         public void onBindViewHolder(BierHolder bierHolder, int i) {
-            JSONObject object = null;
+            JSONObject object;
             try {
                 object = (JSONObject) bieres.get(i);
                 String nom = object.getString("name");
