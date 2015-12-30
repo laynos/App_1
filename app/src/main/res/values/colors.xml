@@ -17,4 +17,7 @@
     <color name="primary_material_light">#ee3024</color>
     <color name="primary_dark_material_light">#010101</color>
     <color name="accent_material_light">#e92c1b</color>
+    <color name="chronometer_background">#ee3024</color>
+    <color name="chronometer_foreground">#b3ffffff</color>
+    <color name="chronometer_layout_background">#010101</color>
 </resources>

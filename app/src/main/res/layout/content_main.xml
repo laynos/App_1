@@ -12,39 +12,60 @@
 
 
 
-    <Button
-        android:gravity="center"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/ready"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        android:text="Are you Ready ??!"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/rules"
-        android:id="@+id/btn_rules"
-        android:onClick="btnRules"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/chronometer_background"
         android:layout_alignParentEnd="false"
-        android:clickable="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentStart="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"/>
+
 
     <Button
         android:background="@drawable/round_button"
         android:text="@string/play"
         android:id="@+id/btn_play"
         android:onClick="btnPlay"
-        android:layout_below="@id/btn_rules"
         android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
         android:gravity="center"
+        android:layout_below="@id/ready"
         android:layout_centerHorizontal="true" />
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/start"
-        android:id="@+id/btn_start"
-        android:onClick="btnStart"
+    <LinearLayout
+        android:layout_marginTop="16dp"
         android:layout_below="@id/btn_play"
-        android:gravity="center"
-        android:layout_centerHorizontal="true" />
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content" android:gravity="center_vertical|center_horizontal">
+        <Button
+            android:id="@+id/btn_rules"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="btnRules"
+            android:text="@string/rules"
+            android:clickable="true"
+            android:layout_marginRight="15dp"
+            />
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_toRightOf="@id/btn_rules"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start"
+            android:onClick="btnStart"
+            android:clickable="true"
+            />
 
+    </LinearLayout>
     <!--
         <Button
             android:layout_width="wrap_content"

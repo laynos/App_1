@@ -3,6 +3,7 @@ package org.esiea.bemat_gull.app_1;
 import android.app.DatePickerDialog;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
@@ -11,30 +12,105 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import java.util.Observable;
+import java.util.Observer;
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Observer;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnClickListener, Observer {
 
-
+    private Button actionButton;
+    private Button rulesButton;
+    private TextView chronometerValue;
+    private Chrono chronometerMotor;
+    private Thread chronometer;
 
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        actionButton = (Button) findViewById(R.id.btn_start);
+        rulesButton = (Button) findViewById(R.id.btn_rules);
+       /* setupButton = (Button) findViewById(R.id.configuration_chrono);*/
+        chronometerValue = (TextView) findViewById(R.id.ready);
+        actionButton.setOnClickListener(this);
+     /*   resetButton.setOnClickListener(this);
+        setupButton.setOnClickListener(this);*/
 
 
 
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        chronometerMotor = new Chrono();
+        chronometerMotor.addObserver(this);
+        chronometer = new Thread(chronometerMotor);
+    }
+
+    @Override
+    public void onClick(final View view) {
+        new Thread(){
+
+            {
+                setDaemon(true);
+            }
+
+            public void run(){
+                if (view == actionButton){
+                    toggleChronometerState();
+                }
+
+            }
+        }.start();
+    }
+
+    @Override
+    public void update(Observable observable, final Object data) {
+        runOnUiThread(new Thread() {
+            public void run() {
+                long totalSeconds = (Long) data;
+                String timeString = getTimeString(totalSeconds);
+                chronometerValue.setText(timeString);
+                if(totalSeconds==0)
+                    chronometerValue.setText("GAME OVER !!");
+
+            }
+        });
+    }
+    private String getTimeString(long totalSeconds) {
+        int seconds = (int) totalSeconds % 60;
+      /*  int minits = (int) (totalSeconds / 60) % 60;
+        int hours = (int) totalSeconds / 3600;*/
+        return String.format(/*%02d:%02d:*/"%02d",/* hours, minits,*/ seconds);
+    }
+
+
+    private void resetChronometer() {
+        throw new UnsupportedOperationException();
+    }
+
+    private void toggleChronometerState() {
+        if ( ! chronometer.isAlive() )
+            chronometer.start();
+        else
+            chronometer.stop();
+    }
 
 
     @Override
@@ -69,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                 NotificationCompat.Builder wat =
                         new NotificationCompat.Builder(this)
                                 .setSmallIcon(R.mipmap.ic_launcher)
-                                .setContentTitle("INF4042")
+                                .setContentTitle("CLICK THAT")
                                 .setContentText(getString(R.string.notification_example));
                 NotificationManager manager = ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE));
                 manager.notify(1,wat.build());

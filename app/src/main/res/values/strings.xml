@@ -22,5 +22,8 @@
     <string name="play">Click me !</string>
     <string name="start">Start</string>
     <string name="change_date">Change date</string>
+    <string name="chronometer_action_text_start">Action</string>
+    <string name="initialisation_chrono_text">Initialisation</string>
+    <string name="configuration_chrono_text">Configuration</string>
 
 </resources>
