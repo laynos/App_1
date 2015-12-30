@@ -6,7 +6,7 @@
     <!--   <string name="button_text">Change date</string> -->
     <string name="button_second_text">Change activity</string>
     <string name="msg">Enter new date</string>
-    <string name="title_activity_seconde">Second Activity</string>
+    <string name="title_activity_seconde">List of Biers</string>
     <string name="dl">Downloading&#8230;</string>
     <string name="endDL">File downloaded</string>
     <string name="date">Date</string>

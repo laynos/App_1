@@ -7,10 +7,7 @@
         android:orderInCategory="90"
         app:showAsAction="never"
         android:title="@string/change_date" />
-    <item
-        android:id="@+id/date"
-        app:showAsAction="always"
-        android:title="@string/date" />
+
     <item android:id="@+id/action_toast"
         android:title="@string/menu_toast"
         android:orderInCategory="40"

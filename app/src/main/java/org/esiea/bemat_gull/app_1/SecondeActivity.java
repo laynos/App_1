@@ -12,6 +12,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -43,6 +44,9 @@ public class SecondeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seconde);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         GetBiersServices.startActionGet_All_Biers(this);
 
         IntentFilter intentFilter = new IntentFilter(BIERS_UPDATE);
@@ -62,7 +66,7 @@ public class SecondeActivity extends AppCompatActivity {
         int month = Integer.parseInt(dateNow.substring(3, 5));
         int yeaar = Integer.parseInt(dateNow.substring(6, 10));
 
-        tv_hw.setText(getString(R.string.date) + "\n " + dateNow);
+        tv_hw.setText(getString(R.string.date) + ":\t " + dateNow);
 
         dpd = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -75,7 +79,7 @@ public class SecondeActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_seconde, menu);
         return true;
     }
 
