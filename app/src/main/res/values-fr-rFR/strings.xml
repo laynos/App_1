@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CLICK THAT</string>
+    <string name="app_name">INF4042</string>
     <string name="Hello_world">Salut à tous !</string>
     <string name="action_settings">Paramètres</string>
-    <string name="button_text">Changer la date</string>
+    <!--   <string name="button_text">Changer la date</string> -->
     <string name="button_second_text">Changer d\' activite</string>
     <string name="msg">Entrer nouvelle date</string>
     <string name="title_activity_seconde">Deuxieme activite</string>
@@ -18,4 +18,8 @@
     <string name="menu_toast">Recevoir un toast</string>
     <string name="toast_example">Voici un toast</string>
     <string name="notification_example">Voici une notification</string>
+    <string name="rules">Règles du jeu</string>
+    <string name="play">Cliques !</string>
+    <string name="start">Commencer</string>
+    <string name="change_date">Changer la date</string>
 </resources>

@@ -11,31 +11,59 @@
     tools:showIn="@layout/activity_main" tools:context=".MainActivity">
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_second_text"
-        android:id="@+id/btn_secondActivity"
-        android:onClick="btnSdAct"
-        android:layout_gravity="center_vertical"
-        android:layout_below="@+id/btn_hello_world" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Hello_world"
-        android:id="@+id/tv_hello_world"
-        android:gravity="center"
-        android:layout_weight="1"
-
-        android:layout_gravity="center_vertical" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_text"
-        android:id="@+id/btn_hello_world"
-        android:layout_below="@+id/tv_hello_world"
-        android:onClick="btnHwAct"
-        android:layout_gravity="center_vertical" />
+        android:text="@string/rules"
+        android:id="@+id/btn_rules"
+        android:onClick="btnRules"
+        android:gravity="center" />
+
+    <Button
+        android:layout_width="@dimen/activity_horizontal_margin"
+        android:layout_height="wrap_content"
+        android:text="@string/play"
+        android:id="@+id/btn_play"
+        android:onClick="btnPlay"
+        android:layout_below="@id/btn_rules"
+        android:gravity="center" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start"
+        android:id="@+id/btn_start"
+        android:onClick="btnStart"
+        android:layout_below="@id/btn_play" />
+
+    <!--
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_second_text"
+            android:id="@+id/btn_secondActivity"
+            android:onClick="btnSdAct"
+            android:layout_gravity="center_vertical"
+            android:layout_below="@+id/btn_hello_world" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Hello_world"
+            android:id="@+id/tv_hello_world"
+            android:gravity="center"
+            android:layout_weight="1"
+
+            android:layout_gravity="center_vertical" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_text"
+            android:id="@+id/btn_hello_world"
+            android:layout_below="@+id/tv_hello_world"
+            android:onClick="btnHwAct"
+            android:layout_gravity="center_vertical" />
+            -->
 </RelativeLayout>

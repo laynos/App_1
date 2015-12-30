@@ -21,8 +21,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView tv_hw;
-    DatePickerDialog dpd;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,23 +30,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        tv_hw = (TextView) findViewById(R.id.tv_hello_world);
 
-        Date date = new Date();
-        SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
-        String dateNow = f.format(date);
-        int day = Integer.parseInt(dateNow.substring(0, 2));
-        int month = Integer.parseInt(dateNow.substring(3, 5));
-        int yeaar = Integer.parseInt(dateNow.substring(6, 10));
-
-        tv_hw.setText(getString(R.string.date) + "\n " + dateNow );
-
-        dpd = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                tv_hw.setText(getString(R.string.date) +"\n "+ dayOfMonth + "/" + (monthOfYear+1) + "/" + year);
-            }
-        }, yeaar, month-1, day);
 
 
     }
@@ -66,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.menu_about:
                 // Comportement du bouton "A Propos"
+                Intent second= new Intent(this, SecondeActivity.class);
+                startActivity(second);
                 return true;
             case R.id.menu_help:
                 // Comportement du bouton "Aide"
@@ -99,15 +84,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void btnHwAct(View v) {
-        Toast.makeText(getApplicationContext(),getString(R.string.msg),Toast.LENGTH_LONG).show();
-        dpd.show();
+
+
+
+    public void btnRules(View v) {
+        /*Intent third= new Intent(this, ThirdActivity.class);
+        startActivity(third);*/
+        //soit on fait une activity/intent ou sinon on fait un popup ou qqchose du genre (je sais pas encore cmt faire)
     }
+    public void btnPlay(View v) {
 
-
-    public void btnSdAct(View v) {
-        Intent second= new Intent(this, SecondeActivity.class);
-        startActivity(second);
+    }
+    public void btnStart(View v) {
 
     }
 }

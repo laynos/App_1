@@ -1,5 +1,6 @@
 package org.esiea.bemat_gull.app_1;
 
+import android.app.DatePickerDialog;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -17,7 +18,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,12 +29,15 @@ import org.json.JSONObject;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class SecondeActivity extends AppCompatActivity {
 
     RecyclerView rv;
-
+    TextView tv_hw;
+    DatePickerDialog dpd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +51,25 @@ public class SecondeActivity extends AppCompatActivity {
         rv = (RecyclerView)findViewById(R.id.rv_biere);
         rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rv.setAdapter(new BiersAdapter(getBiersFromFile()));
+
+
+        tv_hw = (TextView) findViewById(R.id.tv_hello_world);
+
+        Date date = new Date();
+        SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
+        String dateNow = f.format(date);
+        int day = Integer.parseInt(dateNow.substring(0, 2));
+        int month = Integer.parseInt(dateNow.substring(3, 5));
+        int yeaar = Integer.parseInt(dateNow.substring(6, 10));
+
+        tv_hw.setText(getString(R.string.date) + "\n " + dateNow);
+
+        dpd = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                tv_hw.setText(getString(R.string.date) +"\n "+ dayOfMonth + "/" + (monthOfYear+1) + "/" + year);
+            }
+        }, yeaar, month-1, day);
     }
 
     @Override
@@ -62,7 +87,9 @@ public class SecondeActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.change_date) {
+            Toast.makeText(getApplicationContext(), getString(R.string.msg), Toast.LENGTH_LONG).show();
+            dpd.show();
             return true;
         }
 
@@ -77,6 +104,14 @@ public class SecondeActivity extends AppCompatActivity {
         NotificationManager manager = ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE));
         manager.notify(1,wat.build());
     }
+
+
+    /*public void btnHwAct(View v) {
+        Toast.makeText(getApplicationContext(), getString(R.string.msg), Toast.LENGTH_LONG).show();
+        dpd.show();
+    }*/
+
+
     public static final String BIERS_UPDATE = "gull_bemat.esiea.org.action.BIERS_UPDATE";
 
     public class BierUpdate extends BroadcastReceiver {
