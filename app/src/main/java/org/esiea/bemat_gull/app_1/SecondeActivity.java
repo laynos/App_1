@@ -71,7 +71,7 @@ public class SecondeActivity extends AppCompatActivity {
         dpd = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                tv_hw.setText(getString(R.string.date) +"\n "+ dayOfMonth + "/" + (monthOfYear+1) + "/" + year);
+                tv_hw.setText(getString(R.string.date) +":\t "+ dayOfMonth + "/" + (monthOfYear+1) + "/" + year);
             }
         }, yeaar, month-1, day);
     }

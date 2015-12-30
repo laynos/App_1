@@ -18,16 +18,19 @@
         android:text="@string/rules"
         android:id="@+id/btn_rules"
         android:onClick="btnRules"
-        android:gravity="center" />
+        android:gravity="center"
+        android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="@dimen/activity_horizontal_margin"
-        android:layout_height="wrap_content"
+        android:background="@drawable/round_button"
+        android:layout_width="@dimen/button_widthland"
+        android:layout_height="@dimen/button_heightland"
         android:text="@string/play"
         android:id="@+id/btn_play"
         android:onClick="btnPlay"
         android:layout_below="@id/btn_rules"
-        android:gravity="center" />
+        android:gravity="center"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -35,7 +38,8 @@
         android:text="@string/start"
         android:id="@+id/btn_start"
         android:onClick="btnStart"
-        android:layout_below="@id/btn_play" />
+        android:layout_below="@id/btn_play"
+        android:layout_centerHorizontal="true" />
 
     <!--
         <Button

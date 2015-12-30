@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">INF4042</string>
+    <string name="app_name">CLICK THAT</string>
     <string name="Hello_world">Hello world !</string>
     <string name="action_settings">Settings</string>
     <!--   <string name="button_text">Change date</string> -->
@@ -19,7 +19,8 @@
     <string name="toast_example">Take my toast</string>
     <string name="notification_example">Take my notification</string>
     <string name="rules">Rules</string>
-    <string name="play">Hit me !</string>
+    <string name="play">Click me !</string>
     <string name="start">Start</string>
     <string name="change_date">Change date</string>
+
 </resources>
