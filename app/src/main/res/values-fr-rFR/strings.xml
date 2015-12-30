@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">INF4042</string>
+    <string name="app_name">CLICK THAT</string>
     <string name="Hello_world">Salut à tous !</string>
     <string name="action_settings">Paramètres</string>
     <string name="button_text">Changer la date</string>
