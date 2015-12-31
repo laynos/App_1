@@ -26,5 +26,6 @@
     <string name="game_rule">Cliquez sur <b>Commencer</b> pour démarrer le jeu. Vous devez cliquer sur le bouton un maximum de fois possible dans le temps imparti. Si vous réussissez, vous aurez droit à une petite surprise !</string>
     <string name="dialog_box">Bien reçu !</string>
     <string name="ready">Prêt ??!</string>
+    <string name="restart">Recommencer</string>
 
 </resources>

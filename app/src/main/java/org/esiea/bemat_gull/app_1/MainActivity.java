@@ -6,30 +6,30 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Observable;
-import java.util.Observer;
 
-
-public class MainActivity extends AppCompatActivity implements OnClickListener, Observer {
+public class MainActivity extends AppCompatActivity {
 
     private Button actionButton;
   // private Button rulesButton;
-    private TextView chronometerValue;
+   /* private TextView chronometerValue;
     private Chrono chronometerMotor;
     private Thread chronometer;
-
-
+*/
+    private TextView myChrono;
+    private CountDownTimer cdt;
+    private int flag;
+    private int score;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -40,13 +40,16 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         actionButton = (Button) findViewById(R.id.btn_start);
      //   rulesButton = (Button) findViewById(R.id.btn_rules);
        /* setupButton = (Button) findViewById(R.id.configuration_chrono);*/
-        chronometerValue = (TextView) findViewById(R.id.ready);
-        actionButton.setOnClickListener(this);
+  /*      chronometerValue = (TextView) findViewById(R.id.ready);
+        actionButton.setOnClickListener(this);*/
      /*   resetButton.setOnClickListener(this);
         setupButton.setOnClickListener(this);*/
-
+        myChrono = (TextView) findViewById(R.id.ready);
+        flag = 0;
+        score = 70;
     }
 
+/*
     @Override
     public void onResume(){
         super.onResume();
@@ -85,15 +88,16 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
             }
         });
     }
-    private String getTimeString(long totalSeconds) {
-        int seconds = (int) totalSeconds % 60;
+  */
+    /*private String getTimeString(long totalSeconds) {
+        int seconds = (int) totalSeconds % 60;*/
       /*  int minits = (int) (totalSeconds / 60) % 60;
         int hours = (int) totalSeconds / 3600;*/
-        return String.format(/*%02d:%02d:*/"%02d",/* hours, minits,*/ seconds);
-    }
+//        return String.format(/*%02d:%02d:*/"%02d",/* hours, minits,*/ seconds);
+  //  }
 
 
-    private void resetChronometer() {
+    /*private void resetChronometer() {
         throw new UnsupportedOperationException();
     }
 
@@ -104,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
             chronometer.stop();
     }
 
-
+*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -132,7 +136,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
                 return true;
             case R.id.action_toast:
                 // Comportement du bouton "Toast"
-                Toast.makeText(getApplicationContext(),getString(R.string.toast_example),Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.toast_example), Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -164,7 +168,26 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     public void btnPlay(View v) {
 
     }
-  /*  public void btnStart(View v) {
 
-    }*/
+    public void btnStart(View v) {
+        if(flag == 1)
+            cdt.cancel();
+        flag = 1;
+        actionButton.setText(R.string.restart);
+        cdt = new CountDownTimer(31000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                myChrono.setText(""+millisUntilFinished / 1000);
+            }
+
+            public void onFinish() {
+                myChrono.setText(R.string.end_game);
+                if(score > 50) {
+                    Intent second= new Intent(getApplicationContext(), SecondeActivity.class);
+                    startActivity(second);
+                }
+            }
+        }.start();
+    }
+
 }

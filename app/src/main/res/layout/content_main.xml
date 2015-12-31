@@ -64,8 +64,8 @@
             android:layout_height="wrap_content"
             android:text="@string/start"
             android:clickable="true"
+            android:onClick="btnStart"
             />
-        <!-- android:onClick="btnStart"-->
     </LinearLayout>
     <!--
         <Button

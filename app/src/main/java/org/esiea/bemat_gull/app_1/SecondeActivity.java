@@ -90,14 +90,32 @@ public class SecondeActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.change_date) {
-            Toast.makeText(getApplicationContext(), getString(R.string.msg), Toast.LENGTH_LONG).show();
-            dpd.show();
-            return true;
-        }
+        switch (item.getItemId()) {
 
-        return super.onOptionsItemSelected(item);
+            case R.id.change_date:
+                Toast.makeText(getApplicationContext(), getString(R.string.msg), Toast.LENGTH_LONG).show();
+                dpd.show();
+                return true;
+
+            case R.id.action_notification:
+            // Comportement du bouton "Notification"
+                NotificationCompat.Builder wat =
+                        new NotificationCompat.Builder(this)
+                            .setSmallIcon(R.mipmap.ic_launcher)
+                            .setContentTitle("CLICK THAT")
+                            .setContentText(getString(R.string.notification_example));
+                NotificationManager manager = ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE));
+                manager.notify(1,wat.build());
+                return true;
+
+            case R.id.action_toast:
+                // Comportement du bouton "Toast"
+                Toast.makeText(getApplicationContext(), getString(R.string.toast_example), Toast.LENGTH_LONG).show();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
     public void notification() {
         NotificationCompat.Builder wat =
