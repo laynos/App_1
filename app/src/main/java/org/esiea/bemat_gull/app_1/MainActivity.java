@@ -1,7 +1,6 @@
 package org.esiea.bemat_gull.app_1;
 
 import android.app.AlertDialog;
-import android.app.Application;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -22,11 +21,6 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private Button actionButton;
-  // private Button rulesButton;
-   /* private TextView chronometerValue;
-    private Chrono chronometerMotor;
-    private Thread chronometer;
-*/
     private TextView myChrono;
     private CountDownTimer cdt;
     private int flag;
@@ -39,77 +33,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         actionButton = (Button) findViewById(R.id.btn_start);
-     //   rulesButton = (Button) findViewById(R.id.btn_rules);
-       /* setupButton = (Button) findViewById(R.id.configuration_chrono);*/
-  /*      chronometerValue = (TextView) findViewById(R.id.ready);
-        actionButton.setOnClickListener(this);*/
-     /*   resetButton.setOnClickListener(this);
-        setupButton.setOnClickListener(this);*/
         myChrono = (TextView) findViewById(R.id.ready);
         flag = 0;
         score = 0;
     }
 
-/*
-    @Override
-    public void onResume(){
-        super.onResume();
-        chronometerMotor = new Chrono();
-        chronometerMotor.addObserver(this);
-        chronometer = new Thread(chronometerMotor);
-    }
-
-    @Override
-    public void onClick(final View view) {
-        new Thread(){
-
-            {
-                setDaemon(true);
-            }
-
-            public void run(){
-                if (view == actionButton){
-                    toggleChronometerState();
-                }
-
-            }
-        }.start();
-    }
-
-    @Override
-    public void update(Observable observable, final Object data) {
-        runOnUiThread(new Thread() {
-            public void run() {
-                long totalSeconds = (Long) data;
-                String timeString = getTimeString(totalSeconds);
-                chronometerValue.setText(timeString);
-                if(totalSeconds==0)
-                    chronometerValue.setText(R.string.end_game);
-
-            }
-        });
-    }
-  */
-    /*private String getTimeString(long totalSeconds) {
-        int seconds = (int) totalSeconds % 60;*/
-      /*  int minits = (int) (totalSeconds / 60) % 60;
-        int hours = (int) totalSeconds / 3600;*/
-//        return String.format(/*%02d:%02d:*/"%02d",/* hours, minits,*/ seconds);
-  //  }
-
-
-    /*private void resetChronometer() {
-        throw new UnsupportedOperationException();
-    }
-
-    private void toggleChronometerState() {
-        if ( ! chronometer.isAlive() )
-            chronometer.start();
-        else
-            chronometer.stop();
-    }
-
-*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -149,9 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void btnRules(View v) {
-        /*Intent third= new Intent(this, ThirdActivity.class);
-        startActivity(third);*/
-        //soit on fait une activity/intent ou sinon on fait un popup ou qqchose du genre (je sais pas encore cmt faire)
+
         AlertDialog.Builder adb = new AlertDialog.Builder(this);
         adb.setTitle(R.string.rules);
         adb

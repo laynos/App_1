@@ -15,7 +15,7 @@
         android:id="@+id/ready"
         android:textStyle="bold"
         android:typeface="monospace"
-        android:text="Are you Ready ??!"
+        android:text="@string/ready"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
@@ -74,33 +74,5 @@
 
     </LinearLayout>
 
-    <!--
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_second_text"
-            android:id="@+id/btn_secondActivity"
-            android:onClick="btnSdAct"
-            android:layout_gravity="center_vertical"
-            android:layout_below="@+id/btn_hello_world" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Hello_world"
-            android:id="@+id/tv_hello_world"
-            android:gravity="center"
-            android:layout_weight="1"
-
-            android:layout_gravity="center_vertical" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_text"
-            android:id="@+id/btn_hello_world"
-            android:layout_below="@+id/tv_hello_world"
-            android:onClick="btnHwAct"
-            android:layout_gravity="center_vertical" />
-            -->
 </RelativeLayout>
