@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         setupButton.setOnClickListener(this);*/
         myChrono = (TextView) findViewById(R.id.ready);
         flag = 0;
-        score = 70;
+        score = 0;
     }
 
 /*
@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnPlay(View v) {
-
+        score++;
     }
 
     public void btnStart(View v) {
