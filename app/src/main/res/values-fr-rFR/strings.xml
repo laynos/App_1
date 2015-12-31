@@ -23,7 +23,7 @@
     <string name="start">Commencer</string>
     <string name="change_date">Changer la date</string>
     <string name="end_game">Fin du jeu</string>
-    <string name="game_rule">Cliquez sur Commencer pour démarrer le jeu. Vous devez cliquer sur le bouton un maximum de fois possible dans le temps imparti. Si vous réussissez, vous aurez droit à une petite surprise !</string>
+    <string name="game_rule">Cliquez sur <b>Commencer</b> pour démarrer le jeu. Vous devez cliquer sur le bouton un maximum de fois possible dans le temps imparti. Si vous réussissez, vous aurez droit à une petite surprise !</string>
     <string name="dialog_box">Bien reçu !</string>
     <string name="ready">Prêt ??!</string>
 
