@@ -16,7 +16,7 @@
         android:id="@+id/ready"
         android:textStyle="bold"
         android:typeface="monospace"
-        android:text="Are you Ready ??!"
+        android:text="@string/ready"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
@@ -24,6 +24,8 @@
         android:textColor="@color/chronometer_background"
         android:layout_alignParentEnd="false"
         android:layout_alignParentStart="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="25dp"/>
 
@@ -61,10 +63,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/start"
-            android:onClick="btnStart"
             android:clickable="true"
             />
-
+        <!-- android:onClick="btnStart"-->
     </LinearLayout>
     <!--
         <Button

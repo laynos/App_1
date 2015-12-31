@@ -1,6 +1,6 @@
 package org.esiea.bemat_gull.app_1;
 
-import android.app.DatePickerDialog;
+import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -12,30 +12,24 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.TextView;
-import android.widget.Toast;
-import java.util.Observable;
-import java.util.Observer;
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import android.widget.Toast;
+
+import java.util.Observable;
 import java.util.Observer;
 
 
 public class MainActivity extends AppCompatActivity implements OnClickListener, Observer {
 
     private Button actionButton;
-    private Button rulesButton;
+  // private Button rulesButton;
     private TextView chronometerValue;
     private Chrono chronometerMotor;
     private Thread chronometer;
+
+
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -44,14 +38,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         actionButton = (Button) findViewById(R.id.btn_start);
-        rulesButton = (Button) findViewById(R.id.btn_rules);
+     //   rulesButton = (Button) findViewById(R.id.btn_rules);
        /* setupButton = (Button) findViewById(R.id.configuration_chrono);*/
         chronometerValue = (TextView) findViewById(R.id.ready);
         actionButton.setOnClickListener(this);
      /*   resetButton.setOnClickListener(this);
         setupButton.setOnClickListener(this);*/
-
-
 
     }
 
@@ -88,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
                 String timeString = getTimeString(totalSeconds);
                 chronometerValue.setText(timeString);
                 if(totalSeconds==0)
-                    chronometerValue.setText("GAME OVER !!");
+                    chronometerValue.setText(R.string.end_game);
 
             }
         });
@@ -167,11 +159,24 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         /*Intent third= new Intent(this, ThirdActivity.class);
         startActivity(third);*/
         //soit on fait une activity/intent ou sinon on fait un popup ou qqchose du genre (je sais pas encore cmt faire)
+        AlertDialog.Builder adb = new AlertDialog.Builder(this);
+        adb.setTitle(R.string.rules);
+        adb
+                .setMessage(R.string.game_rule)
+                .setCancelable(false)
+                .setNeutralButton(R.string.dialog_box, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alertDialog = adb.create();
+        alertDialog.show();
     }
+
     public void btnPlay(View v) {
 
     }
-    public void btnStart(View v) {
+  /*  public void btnStart(View v) {
 
-    }
+    }*/
 }
