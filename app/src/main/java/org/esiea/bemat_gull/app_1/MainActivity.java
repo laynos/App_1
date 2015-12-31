@@ -170,8 +170,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnStart(View v) {
-        if(flag == 1)
+        if(flag == 1) {
             cdt.cancel();
+            score = 0;
+        }
         flag = 1;
         actionButton.setText(R.string.restart);
         cdt = new CountDownTimer(31000, 1000) {
