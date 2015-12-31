@@ -115,22 +115,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_about:
+            case R.id.menu_cheat:
                 // Comportement du bouton "A Propos"
                 Intent second= new Intent(this, SecondeActivity.class);
                 startActivity(second);
-                return true;
-            case R.id.menu_help:
-                // Comportement du bouton "Aide"
-                return true;
-            case R.id.menu_refresh:
-                // Comportement du bouton "Rafraichir"
-                return true;
-            case R.id.menu_search:
-                // Comportement du bouton "Recherche"
-                return true;
-            case R.id.action_settings:
-                // Comportement du bouton "Paramètres"
                 return true;
             case R.id.action_notification:
                 // Comportement du bouton "Notification"

@@ -13,7 +13,7 @@
     <string name="menu_search">Search</string>
     <string name="menu_refresh">Refresh</string>
     <string name="menu_help">Help</string>
-    <string name="menu_about">About</string>
+    <string name="menu_cheat">Game Cheat</string>
     <string name="menu_notification">Get notification</string>
     <string name="menu_toast">Get toast</string>
     <string name="toast_example">Take my toast</string>

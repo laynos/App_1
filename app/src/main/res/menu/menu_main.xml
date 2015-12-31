@@ -2,10 +2,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
 
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        android:orderInCategory="100"
-        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_cheat"
+        android:orderInCategory="90"
+        app:showAsAction="never"
+        android:title="@string/menu_cheat"/>
 
     <item android:id="@+id/action_toast"
         android:title="@string/menu_toast"
@@ -17,25 +18,6 @@
         android:orderInCategory="50"
         app:showAsAction="never"
         />
-    <item
-        android:id="@+id/menu_search"
-        android:orderInCategory="60"
-        app:showAsAction="never"
-        android:title="@string/menu_search"/>
-    <item
-        android:id="@+id/menu_refresh"
-        android:orderInCategory="70"
-        app:showAsAction="never"
-        android:title="@string/menu_refresh"/>
-    <item
-        android:id="@+id/menu_help"
-        android:orderInCategory="80"
-        app:showAsAction="never"
-        android:title="@string/menu_help"/>
-    <item
-        android:id="@+id/menu_about"
-        android:orderInCategory="90"
-        app:showAsAction="never"
-        android:title="@string/menu_about"/>
+
 
 </menu>
