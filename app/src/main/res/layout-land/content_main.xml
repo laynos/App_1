@@ -23,6 +23,8 @@
         android:textColor="@color/chronometer_background"
         android:layout_alignParentEnd="false"
         android:layout_alignParentStart="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="25dp"/>
 
