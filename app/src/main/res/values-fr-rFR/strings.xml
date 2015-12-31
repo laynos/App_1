@@ -27,5 +27,10 @@
     <string name="dialog_box">Bien reçu !</string>
     <string name="ready">Prêt ??!</string>
     <string name="restart">Recommencer</string>
+    <string name="win">Gagné !</string>
+    <string name="win_game">Vous avez gagné ! Vous pouvez maintenant avoir votre surprise !</string>
+    <string name="lost">Perdu !</string>
+    <string name="lost_game">Vous avez perdu ! Vous pouvez retenter votre chance en cliquant sur <b>Recommencer</b>.<i>Vous pouvez aussi obtenir la surprise en trichant</i>.</string>
+
 
 </resources>

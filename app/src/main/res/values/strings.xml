@@ -30,5 +30,9 @@
     <string name="dialog_box">I get it !</string>
     <string name="ready">Are you ready ??!</string>
     <string name="restart">Restart</string>
+    <string name="win">You won !</string>
+    <string name="win_game">You won the game. You can now have your surprise !</string>
+    <string name="lost">You lost !</string>
+    <string name="lost_game">You lost the game. You can restart by clicking on <b>Restart</b>.<i>You can also cheat to get your surprise</i>.</string>
 
 </resources>

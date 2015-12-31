@@ -1,6 +1,7 @@
 package org.esiea.bemat_gull.app_1;
 
 import android.app.AlertDialog;
+import android.app.Application;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -183,10 +184,36 @@ public class MainActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
-                myChrono.setText(R.string.end_game);
                 if(score > 50) {
-                    Intent second= new Intent(getApplicationContext(), SecondeActivity.class);
-                    startActivity(second);
+                    AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
+                    adb.setTitle(R.string.win);
+                    adb
+                            .setMessage(R.string.win_game)
+                            .setCancelable(false)
+                            .setNeutralButton(R.string.dialog_box, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                    myChrono.setText(R.string.end_game);
+                                    Intent second = new Intent(getApplicationContext(), SecondeActivity.class);
+                                    startActivity(second);
+                                }
+                            });
+                    AlertDialog alertDialog = adb.create();
+                    alertDialog.show();
+                }else{
+                    AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
+                    adb.setTitle(R.string.lost);
+                    adb
+                            .setMessage(R.string.lost_game)
+                            .setCancelable(false)
+                            .setNeutralButton(R.string.dialog_box, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                    myChrono.setText(R.string.end_game);
+                                }
+                            });
+                    AlertDialog alertDialog = adb.create();
+                    alertDialog.show();
                 }
             }
         }.start();
