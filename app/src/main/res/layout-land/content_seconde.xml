@@ -14,14 +14,27 @@
 
     <TextView android:text="@string/Hello_world" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_hello_world"/>
+        android:id="@+id/tv_hello_world"
+        android:textColor="@color/primary_material_light"
+        android:layout_marginBottom="10dp"
+        />
+    <Button
+        android:id="@+id/button_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="btnChangeDate"
+        android:text="@string/change_date"
+        android:clickable="true"
+        android:layout_marginRight="15dp"
+        android:layout_below="@id/tv_hello_world"
+        />
 
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_biere"
         android:scrollbars="vertical"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="25dp"
+        android:layout_below="@id/button_date"
+        android:layout_marginBottom="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />

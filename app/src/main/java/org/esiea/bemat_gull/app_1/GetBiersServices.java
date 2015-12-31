@@ -36,7 +36,7 @@ public class GetBiersServices extends IntentService {
         Intent intent = new Intent(context, GetBiersServices.class);
         intent.setAction(ACTION_GET_ALL_BIERS);
         context.startService(intent);
-        Toast.makeText(context, R.string.dl, Toast.LENGTH_LONG).show();
+        Toast.makeText(context, R.string.dl, Toast.LENGTH_SHORT).show();
     }
 
 

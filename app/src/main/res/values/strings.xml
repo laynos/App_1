@@ -21,9 +21,9 @@
     <string name="rules">Rules</string>
     <string name="play">Click me !</string>
     <string name="start">Start</string>
-    <string name="change_date">Change date</string>
+    <string name="change_date">Change the Record date</string>
     <string name="end_game">End</string>
-    <string name="game_rule">Click <b>Start</b> to start the game. You have to click on the button as much as possible before the counter goes down. If you succeed, you will have a surprise !</string>
+    <string name="game_rule">Click <b>Start</b> to start the game. You have to click on the button as much as possible before the counter goes down. You need to get at least <b>50 points</b> to win this game. If you succeed, you will have a surprise !</string>
     <string name="dialog_box">I get it !</string>
     <string name="ready">Are you ready ??!</string>
     <string name="restart">Restart</string>
@@ -31,5 +31,7 @@
     <string name="win_game">You won the game. You can now have your surprise !</string>
     <string name="lost">You lost !</string>
     <string name="lost_game">You lost the game. You can restart by clicking on <b>Restart</b>.<i>You can also cheat to get your surprise</i>.</string>
+    <string name="score">Score : 0</string>
+    <string name="winMessage">Today is a memorable day, you just won our game \"CLICK THAT\" . Let\'s never forget the date of this accomplishments !</string>
 
 </resources>

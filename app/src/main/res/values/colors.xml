@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1eceaa</color>
+    <color name="colorPrimary">#ee3024</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#1eceaa</color>
+    <color name="colorAccent">#ee3024</color>
     <color name="background_material_dark">#737373</color>
     <color name="bg_white">#ffffff</color>
-    <color name="foreground_material_light">#42b989</color>
+    <color name="foreground_material_light">#ee3024</color>
     <color name="black">#000000</color>
     <color name="statusBarColor">#000000</color>
     <color name="primary_text_default_material_light">#de616060</color>

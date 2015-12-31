@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button actionButton;
     private TextView myChrono;
+    private TextView myScore;
     private CountDownTimer cdt;
     private int flag;
     private int score;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         actionButton = (Button) findViewById(R.id.btn_start);
         myChrono = (TextView) findViewById(R.id.ready);
+        myScore = (TextView) findViewById(R.id.score);
         flag = 0;
         score = 0;
     }
@@ -94,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void btnPlay(View v) {
         score++;
+
     }
 
     public void btnStart(View v) {
@@ -101,14 +104,16 @@ public class MainActivity extends AppCompatActivity {
             cdt.cancel();
             score = 0;
         }
+        score=0;
         flag = 1;
         actionButton.setText(R.string.restart);
-        cdt = new CountDownTimer(31000, 1000) {
 
+        cdt = new CountDownTimer(31000, 100) {
             public void onTick(long millisUntilFinished) {
                 myChrono.setText(""+millisUntilFinished / 1000);
-            }
+                myScore.setText("Score : "+score);
 
+            }
             public void onFinish() {
                 if(score > 50) {
                     AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);

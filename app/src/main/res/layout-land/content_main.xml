@@ -26,7 +26,24 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="25dp"/>
+        android:layout_marginBottom="5dp"/>
+    <TextView
+        android:id="@+id/score"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        android:text="@string/score"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ready"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/chronometer_background"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"/>
 
 
     <Button
@@ -37,7 +54,7 @@
         android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
         android:gravity="center"
-        android:layout_below="@id/ready"
+        android:layout_below="@id/score"
         android:layout_centerHorizontal="true" />
 
 

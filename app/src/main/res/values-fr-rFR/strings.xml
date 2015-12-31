@@ -21,9 +21,9 @@
     <string name="rules">Règles du jeu</string>
     <string name="play">Cliques !</string>
     <string name="start">Commencer</string>
-    <string name="change_date">Changer la date</string>
+    <string name="change_date">Changer la date du Record</string>
     <string name="end_game">Fin du jeu</string>
-    <string name="game_rule">Cliquez sur <b>Commencer</b> pour démarrer le jeu. Vous devez cliquer sur le bouton un maximum de fois possible dans le temps imparti. Si vous réussissez, vous aurez droit à une petite surprise !</string>
+    <string name="game_rule">Cliquez sur <b>Commencer</b> pour démarrer le jeu. Vous devez cliquer sur le bouton un maximum de fois possible dans le temps imparti. Vous devez avoir un score de <b>50 points</b> minimum pour gagner. Si vous réussissez, vous aurez droit à une petite surprise !</string>
     <string name="dialog_box">Bien reçu !</string>
     <string name="ready">Prêt ??!</string>
     <string name="restart">Recommencer</string>
@@ -31,6 +31,8 @@
     <string name="win_game">Vous avez gagné ! Vous pouvez maintenant avoir votre surprise !</string>
     <string name="lost">Perdu !</string>
     <string name="lost_game">Vous avez perdu ! Vous pouvez retenter votre chance en cliquant sur <b>Recommencer</b>.<i>Vous pouvez aussi obtenir la surprise en trichant</i>.</string>
+    <string name="score">Score : 0</string>
+    <string name="winMessage">Aujourd\'hui est un jour mémorable, vous venez tout juste de gagner notre jeu "CLICK THAT" . N\'oubliez jamais la date de cet exploit !</string>
 
 
 </resources>

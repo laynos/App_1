@@ -66,12 +66,12 @@ public class SecondeActivity extends AppCompatActivity {
         int month = Integer.parseInt(dateNow.substring(3, 5));
         int yeaar = Integer.parseInt(dateNow.substring(6, 10));
 
-        tv_hw.setText(getString(R.string.date) + ":\t " + dateNow);
+        tv_hw.setText(getString(R.string.winMessage)+"\n\n" +getString(R.string.date) + ":\t " + dateNow);
 
         dpd = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                tv_hw.setText(getString(R.string.date) +":\t "+ dayOfMonth + "/" + (monthOfYear+1) + "/" + year);
+                tv_hw.setText(getString(R.string.winMessage)+"\n\n" +getString(R.string.date) +":\t "+ dayOfMonth + "/" + (monthOfYear+1) + "/" + year);
             }
         }, yeaar, month-1, day);
     }
@@ -126,12 +126,11 @@ public class SecondeActivity extends AppCompatActivity {
         NotificationManager manager = ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE));
         manager.notify(1,wat.build());
     }
-
-
-    /*public void btnHwAct(View v) {
-        Toast.makeText(getApplicationContext(), getString(R.string.msg), Toast.LENGTH_LONG).show();
+    public void btnChangeDate(View v) {
         dpd.show();
-    }*/
+        }
+
+
 
 
     public static final String BIERS_UPDATE = "gull_bemat.esiea.org.action.BIERS_UPDATE";
